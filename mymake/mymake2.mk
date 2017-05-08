@@ -1,0 +1,44 @@
+#
+# Now, only the one file will be recompiled
+#
+
+CFLAG=  	-g 
+
+#ddada
+all: myprog1.o myprog2.o myprog3.o #dada
+	#dada
+	     
+	$(CC) $CFLAG myprog1.o myprog2.o myprog3.o -o all #dadad
+#dada
+myprog1.o: myprog1.c myprog.h   
+	$(CC) -c myprog1.c 
+	
+	CC =gcc
+myprog2.o: myprog2.c 	myprog.h
+	$(CC) -c myprog2.c 
+myprog3.o: myprog3.c myprog.h
+	$(CC) -c myprog3.c 
+a: b
+	echo a
+b: c
+	echo b
+c: a
+	echo c	
+clean:
+	echo sleep 10 seconds on background
+	sleep 10 &
+	rm -f all
+	rm -f myprog1.o;rm -f myprog2.o;rm -f myprog3.o
+	rm -f test
+testcd:
+	ls ; cd ..;ls
+demo:   all
+	more < input
+	all > test
+	echo now sleep 5 seconds
+	sleep 5
+  
+
+ 
+
+
